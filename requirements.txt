@@ -1,0 +1,15 @@
+certifi
+chardet
+cheroot
+idna
+more-itertools
+pip
+portend
+pyTelegramBotAPI
+pytz
+requests
+setuptools
+six
+tempora
+urllib3
+wheel
