@@ -1,5 +1,4 @@
-token = '554435450:AAFbSPEFRQ3mc7C1cdTJXkVXPsTocKfWyuI'
-
+token = 'TOKEN_BOT'
 bot_send_message_begin_1 = 'Хорошо, тогда ответь на простой вопрос.\n' \
                            '1 + 1 = ?'
 bot_send_message_begin_2 = 'Пфффф, ну как хочешь.\n Тогда приступим к делу.'
