@@ -55,8 +55,8 @@ def repeat_start_message(message):
     global flag_6
     global flag_7
 
-    answer = 'Ну что начнем, но раз уж ты первый кто ко мне зашел я отдам тебе флаг просто так.\n' \
-             'Если хочешь напиши "+" если нет то "-".'
+    answer = 'Ну что начнем, но раз уж ты первый, кто зашёл ко мне, я отдам тебе флаг просто так.\n' \
+             'Если хочешь напиши "+", если нет  "-".'
     flag_0 = 1
     flag_1 = 0
     flag_2 = 0
@@ -81,22 +81,22 @@ def repeat_all_message(message):
     global flag_7
 
     # ========Начало вступлния================
-    if message.text == '+' and flag_0 == 1:
+    if message.text.lower() == '+' and flag_0 == 1:
         bot.send_message(message.chat.id, constant.bot_send_message_begin_1)
         log(message, constant.bot_send_message_begin_1)
         flag_1 = 1
 
-    elif message.text == '-' and flag_0 == 1:
+    elif message.text.lower() == '-' and flag_0 == 1:
         bot.send_message(message.chat.id, constant.bot_send_message_begin_2)
         log(message, constant.bot_send_message_begin_2)
         flag_2 = 2
 
-    elif message.text == constant.bot_true_answer_0 and flag_1 == 1:
+    elif message.text.lower() == constant.bot_true_answer_0 and flag_1 == 1:
         bot.send_message(message.chat.id, constant.bot_send_message_begin_3)
         log_answer(message, constant.bot_send_message_begin_3, constant.bot_question_0, constant.bot_true_answer_0)
         flag_2 = 2
 
-    elif message.text != constant.bot_true_answer_0 and flag_1 == 1:
+    elif message.text.lower() != constant.bot_true_answer_0 and flag_1 == 1:
         bot.send_message(message.chat.id, constant.bot_send_message_begin_4)
         log_answer(message, constant.bot_send_message_begin_4, constant.bot_question_0, constant.bot_true_answer_0)
     # ========Конец вступлния================
@@ -114,12 +114,12 @@ def repeat_all_message(message):
         flag_6 = 0
         flag_7 = 0
 
-    elif message.text == constant.bot_true_answer_1 and flag_2 == 1:
+    elif message.text.lower() == constant.bot_true_answer_1 and flag_2 == 1:
         bot.send_message(message.chat.id, constant.bot_send_message_1_2)
         log_answer(message, constant.bot_send_message_1_2, constant.bot_question_1, constant.bot_true_answer_1)
         flag_3 = 2
 
-    elif message.text != constant.bot_true_answer_1 and flag_2 == 1:
+    elif message.text.lower() != constant.bot_true_answer_1 and flag_2 == 1:
         bot.send_message(message.chat.id, constant.bot_send_message_1_3)
         log_answer(message, constant.bot_send_message_1_3, constant.bot_question_1, constant.bot_true_answer_1)
         flag_2 = 2
@@ -138,12 +138,12 @@ def repeat_all_message(message):
         flag_6 = 0
         flag_7 = 0
 
-    elif flag_3 == 1 and message.text == constant.bot_true_answer_2:
+    elif flag_3 == 1 and message.text.lower() == constant.bot_true_answer_2:
         bot.send_message(message.chat.id, constant.bot_send_message_2_2)
         log_answer(message, constant.bot_send_message_2_2, constant.bot_question_2, constant.bot_true_answer_2)
         flag_4 = 2
 
-    elif flag_3 == 1 and message.text != constant.bot_true_answer_2:
+    elif flag_3 == 1 and message.text.lower() != constant.bot_true_answer_2:
         bot.send_message(message.chat.id, constant.bot_send_message_2_3)
         log_answer(message, constant.bot_send_message_2_3, constant.bot_question_2, constant.bot_true_answer_2)
         flag_2 = 2
@@ -162,12 +162,12 @@ def repeat_all_message(message):
         flag_6 = 0
         flag_7 = 0
 
-    elif flag_4 == 1 and message.text == constant.bot_true_answer_3:
+    elif flag_4 == 1 and message.text.lower() == constant.bot_true_answer_3:
         bot.send_message(message.chat.id, constant.bot_send_message_3_2)
         log_answer(message, constant.bot_send_message_3_2, constant.bot_question_3, constant.bot_true_answer_3)
         flag_5 = 2
 
-    elif flag_4 == 1 and message.text != constant.bot_true_answer_3:
+    elif flag_4 == 1 and message.text.lower() != constant.bot_true_answer_3:
         bot.send_message(message.chat.id, constant.bot_send_message_3_3)
         log_answer(message, constant.bot_send_message_3_3, constant.bot_question_3, constant.bot_true_answer_3)
         flag_2 = 2
@@ -186,12 +186,12 @@ def repeat_all_message(message):
         flag_6 = 0
         flag_7 = 0
 
-    elif flag_5 == 1 and message.text == constant.bot_true_answer_4:
+    elif flag_5 == 1 and message.text.lower() == constant.bot_true_answer_4:
         bot.send_message(message.chat.id, constant.bot_send_message_4_2)
         log_answer(message, constant.bot_send_message_4_2, constant.bot_question_4, constant.bot_true_answer_4)
         flag_6 = 2
 
-    elif flag_5 == 1 and message.text != constant.bot_true_answer_4:
+    elif flag_5 == 1 and message.text.lower() != constant.bot_true_answer_4:
         bot.send_message(message.chat.id, constant.bot_send_message_4_3)
         log_answer(message, constant.bot_send_message_4_3, constant.bot_question_4, constant.bot_true_answer_4)
         flag_2 = 2
@@ -210,12 +210,12 @@ def repeat_all_message(message):
         flag_6 = 1
         flag_7 = 0
 
-    elif flag_6 == 1 and message.text == constant.bot_true_answer_5:
+    elif flag_6 == 1 and message.text.lower() == constant.bot_true_answer_5:
         bot.send_message(message.chat.id, constant.bot_send_message_5_2)
         log_answer(message, constant.bot_send_message_5_2, constant.bot_question_5, constant.bot_true_answer_5)
         flag_7 = 2
 
-    elif flag_6 == 1 and message.text != constant.bot_true_answer_5:
+    elif flag_6 == 1 and message.text.lower() != constant.bot_true_answer_5:
         bot.send_message(message.chat.id, constant.bot_send_message_5_3)
         log_answer(message, constant.bot_send_message_5_3, constant.bot_question_5, constant.bot_true_answer_5)
         flag_2 = 2
@@ -234,7 +234,7 @@ def repeat_all_message(message):
         flag_6 = 0
         flag_7 = 1
 
-    elif (flag_7 == 1 and message.text == '+') or (flag_7 == 1 and message.text == '-'):
+    elif (flag_7 == 1 and message.text.lower() == '+') or (flag_7 == 1 and message.text.lower() == '-'):
         bot.send_message(message.chat.id, constant.bot_send_message_6_2)
         log(message, constant.bot_send_message_6_2)
     # ========Финальная часть============
