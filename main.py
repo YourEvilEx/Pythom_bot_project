@@ -43,6 +43,13 @@ def repeat_help_message(message):
     bot.send_message(message.chat.id, answer)
     log(message, answer)
 
+@bot.message_handler(commands=['setting'])
+def repeat_help_message(message):
+    answer = 'Иди своей дорогой путник....'
+    bot.send_message(message.chat.id, answer)
+    log(message, answer)
+
+
 
 @bot.message_handler(commands=['start'])
 def repeat_start_message(message):
