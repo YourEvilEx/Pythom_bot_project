@@ -1,4 +1,4 @@
-token = 'TOKEN_BOT'
+token = '554435450:AAFbSPEFRQ3mc7C1cdTJXkVXPsTocKfWyuI'
 bot_send_message_begin_1 = 'Хорошо, тогда ответь на простой вопрос.\n' \
                            'Linux или Windows?'
 bot_send_message_begin_2 = 'Пфффф, ну как хочешь.\n Приступим к делу.'
