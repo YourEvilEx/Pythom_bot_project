@@ -10,7 +10,12 @@ flag_3 = 0  # маркер отвечающий за 2 вопрос
 flag_4 = 0  # маркер отвечающий за 3 вопрос
 flag_5 = 0  # маркер отвечающий за 4 вопрос
 flag_6 = 0  # маркер отвечающий за 5 вопрос
-flag_7 = 0  # маркер отвечающий за выдочу флага
+flag_7 = 0  # маркер отвечающий за 6 вопрос
+flag_8 = 0  # маркер отвечающий за 7 вопрос
+flag_9 = 0  # маркер отвечающий за 8 вопрос
+flag_10 = 0  # маркер отвечающий за 9 вопрос
+flag_11 = 0  # маркер отвечающий за 10 вопрос
+flag_12 = 0  # маркер отвечающий за выдачу флага
 
 
 def log(message, answer):
@@ -43,12 +48,12 @@ def repeat_help_message(message):
     bot.send_message(message.chat.id, answer)
     log(message, answer)
 
+
 @bot.message_handler(commands=['setting'])
 def repeat_help_message(message):
     answer = 'Иди своей дорогой путник....'
     bot.send_message(message.chat.id, answer)
     log(message, answer)
-
 
 
 @bot.message_handler(commands=['start'])
@@ -61,6 +66,11 @@ def repeat_start_message(message):
     global flag_5
     global flag_6
     global flag_7
+    global flag_8
+    global flag_9
+    global flag_10
+    global flag_11
+    global flag_12
 
     answer = 'Ну что начнем, но раз уж ты первый, кто зашёл ко мне, я отдам тебе флаг просто так.\n' \
              'Если хочешь напиши "+", если нет  "-".'
@@ -72,6 +82,12 @@ def repeat_start_message(message):
     flag_5 = 0
     flag_6 = 0
     flag_7 = 0
+    flag_8 = 0
+    flag_9 = 0
+    flag_10 = 0
+    flag_11 = 0
+    flag_12 = 0
+
     bot.send_message(message.chat.id, answer)
     log(message, answer)
 
@@ -86,6 +102,11 @@ def repeat_all_message(message):
     global flag_5
     global flag_6
     global flag_7
+    global flag_8
+    global flag_9
+    global flag_10
+    global flag_11
+    global flag_12
 
     # ========Начало вступлния================
     if message.text.lower() == '+' and flag_0 == 1:
@@ -120,6 +141,11 @@ def repeat_all_message(message):
         flag_5 = 0
         flag_6 = 0
         flag_7 = 0
+        flag_8 = 0
+        flag_9 = 0
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
 
     elif message.text.lower() == constant.bot_true_answer_1 and flag_2 == 1:
         bot.send_message(message.chat.id, constant.bot_send_message_1_2)
@@ -144,6 +170,11 @@ def repeat_all_message(message):
         flag_5 = 0
         flag_6 = 0
         flag_7 = 0
+        flag_8 = 0
+        flag_9 = 0
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
 
     elif flag_3 == 1 and message.text.lower() == constant.bot_true_answer_2:
         bot.send_message(message.chat.id, constant.bot_send_message_2_2)
@@ -168,6 +199,11 @@ def repeat_all_message(message):
         flag_5 = 0
         flag_6 = 0
         flag_7 = 0
+        flag_8 = 0
+        flag_9 = 0
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
 
     elif flag_4 == 1 and message.text.lower() == constant.bot_true_answer_3:
         bot.send_message(message.chat.id, constant.bot_send_message_3_2)
@@ -192,6 +228,11 @@ def repeat_all_message(message):
         flag_5 = 1
         flag_6 = 0
         flag_7 = 0
+        flag_8 = 0
+        flag_9 = 0
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
 
     elif flag_5 == 1 and message.text.lower() == constant.bot_true_answer_4:
         bot.send_message(message.chat.id, constant.bot_send_message_4_2)
@@ -216,6 +257,11 @@ def repeat_all_message(message):
         flag_5 = 0
         flag_6 = 1
         flag_7 = 0
+        flag_8 = 0
+        flag_9 = 0
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
 
     elif flag_6 == 1 and message.text.lower() == constant.bot_true_answer_5:
         bot.send_message(message.chat.id, constant.bot_send_message_5_2)
@@ -228,7 +274,7 @@ def repeat_all_message(message):
         flag_2 = 2
     # ========Конец Пятого вопроса============
 
-    # ========Финальная часть============
+    # ========Шестой вопрос====================
     if flag_7 == 2:
         bot.send_message(message.chat.id, constant.bot_send_message_6_1)
         log(message, constant.bot_send_message_6_1)
@@ -240,10 +286,161 @@ def repeat_all_message(message):
         flag_5 = 0
         flag_6 = 0
         flag_7 = 1
+        flag_8 = 0
+        flag_9 = 0
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
 
-    elif (flag_7 == 1 and message.text.lower() == '+') or (flag_7 == 1 and message.text.lower() == '-'):
+    elif flag_7 == 1 and message.text.lower() == constant.bot_true_answer_6:
         bot.send_message(message.chat.id, constant.bot_send_message_6_2)
-        log(message, constant.bot_send_message_6_2)
+        log_answer(message, constant.bot_send_message_6_2, constant.bot_question_6, constant.bot_true_answer_6)
+        flag_8 = 2
+
+    elif flag_7 == 1 and message.text.lower() != constant.bot_true_answer_6:
+        bot.send_message(message.chat.id, constant.bot_send_message_6_3)
+        log_answer(message, constant.bot_send_message_6_3, constant.bot_question_6, constant.bot_true_answer_6)
+        flag_2 = 2
+    # ========Конец Шестого вопроса============
+
+    # ========Седьмой вопрос====================
+    if flag_8 == 2:
+        bot.send_message(message.chat.id, constant.bot_send_message_7_1)
+        log(message, constant.bot_send_message_7_1)
+        flag_0 = 0
+        flag_1 = 0
+        flag_2 = 0
+        flag_3 = 0
+        flag_4 = 0
+        flag_5 = 0
+        flag_6 = 0
+        flag_7 = 0
+        flag_8 = 1
+        flag_9 = 0
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
+
+    elif flag_8 == 1 and message.text.lower() == constant.bot_true_answer_7:
+        bot.send_message(message.chat.id, constant.bot_send_message_7_2)
+        log_answer(message, constant.bot_send_message_7_2, constant.bot_question_7, constant.bot_true_answer_7)
+        flag_9 = 2
+
+    elif flag_8 == 1 and message.text.lower() != constant.bot_true_answer_7:
+        bot.send_message(message.chat.id, constant.bot_send_message_7_3)
+        log_answer(message, constant.bot_send_message_7_3, constant.bot_question_7, constant.bot_true_answer_7)
+        flag_2 = 2
+    # ========Конец Седьмого вопроса============
+
+    # ========Восьмой вопрос====================
+    if flag_9 == 2:
+        bot.send_message(message.chat.id, constant.bot_send_message_8_1)
+        log(message, constant.bot_send_message_8_1)
+        flag_0 = 0
+        flag_1 = 0
+        flag_2 = 0
+        flag_3 = 0
+        flag_4 = 0
+        flag_5 = 0
+        flag_6 = 0
+        flag_7 = 0
+        flag_8 = 0
+        flag_9 = 1
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
+
+    elif flag_9 == 1 and message.text.lower() == constant.bot_true_answer_8:
+        bot.send_message(message.chat.id, constant.bot_send_message_8_2)
+        log_answer(message, constant.bot_send_message_8_2, constant.bot_question_8, constant.bot_true_answer_8)
+        flag_10 = 2
+
+    elif flag_9 == 1 and message.text.lower() != constant.bot_true_answer_8:
+        bot.send_message(message.chat.id, constant.bot_send_message_8_3)
+        log_answer(message, constant.bot_send_message_8_3, constant.bot_question_8, constant.bot_true_answer_8)
+        flag_2 = 2
+    # ========Конец Восьмого вопроса============
+
+    # ========Девятый вопрос====================
+    if flag_10 == 2:
+        bot.send_message(message.chat.id, constant.bot_send_message_9_1)
+        log(message, constant.bot_send_message_9_1)
+        flag_0 = 0
+        flag_1 = 0
+        flag_2 = 0
+        flag_3 = 0
+        flag_4 = 0
+        flag_5 = 0
+        flag_6 = 0
+        flag_7 = 0
+        flag_8 = 0
+        flag_9 = 1
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
+
+    elif flag_10 == 1 and message.text.lower() == constant.bot_true_answer_9:
+        bot.send_message(message.chat.id, constant.bot_send_message_9_2)
+        log_answer(message, constant.bot_send_message_9_2, constant.bot_question_9, constant.bot_true_answer_9)
+        flag_11 = 2
+
+    elif flag_10 == 1 and message.text.lower() != constant.bot_true_answer_9:
+        bot.send_message(message.chat.id, constant.bot_send_message_9_3)
+        log_answer(message, constant.bot_send_message_9_3, constant.bot_question_9, constant.bot_true_answer_9)
+        flag_2 = 2
+    # ========Конец Девятого вопроса============
+
+    # ========Десятый вопрос====================
+    if flag_11 == 2:
+        bot.send_message(message.chat.id, constant.bot_send_message_10_1)
+        log(message, constant.bot_send_message_10_1)
+        flag_0 = 0
+        flag_1 = 0
+        flag_2 = 0
+        flag_3 = 0
+        flag_4 = 0
+        flag_5 = 0
+        flag_6 = 0
+        flag_7 = 0
+        flag_8 = 0
+        flag_9 = 1
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 0
+
+    elif flag_11 == 1 and message.text.lower() == constant.bot_true_answer_10:
+        bot.send_message(message.chat.id, constant.bot_send_message_10_2)
+        log_answer(message, constant.bot_send_message_10_2, constant.bot_question_10, constant.bot_true_answer_10)
+        flag_12 = 2
+
+    elif flag_11 == 1 and message.text.lower() != constant.bot_true_answer_10:
+        bot.send_message(message.chat.id, constant.bot_send_message_10_3)
+        log_answer(message, constant.bot_send_message_10_3, constant.bot_question_10, constant.bot_true_answer_10)
+        flag_2 = 2
+    # ========Конец Десятого вопроса============
+
+    # ========Финальная часть============
+    if flag_12 == 2:
+        bot.send_message(message.chat.id, constant.bot_send_message_11_1)
+        log(message, constant.bot_send_message_11_1)
+        flag_0 = 0
+        flag_1 = 0
+        flag_2 = 0
+        flag_3 = 0
+        flag_4 = 0
+        flag_5 = 0
+        flag_6 = 0
+        flag_7 = 0
+        flag_7 = 0
+        flag_8 = 0
+        flag_9 = 0
+        flag_10 = 0
+        flag_11 = 0
+        flag_12 = 1
+
+    elif (flag_12 == 1 and message.text.lower() == '+') or (flag_12 == 1 and message.text.lower() == '-'):
+        bot.send_message(message.chat.id, constant.bot_send_message_11_2)
+        log(message, constant.bot_send_message_11_2)
     # ========Финальная часть============
 
 
