@@ -374,8 +374,8 @@ def repeat_all_message(message):
         flag_6 = 0
         flag_7 = 0
         flag_8 = 0
-        flag_9 = 1
-        flag_10 = 0
+        flag_9 = 0
+        flag_10 = 1
         flag_11 = 0
         flag_12 = 0
 
@@ -403,9 +403,9 @@ def repeat_all_message(message):
         flag_6 = 0
         flag_7 = 0
         flag_8 = 0
-        flag_9 = 1
+        flag_9 = 0
         flag_10 = 0
-        flag_11 = 0
+        flag_11 = 11
         flag_12 = 0
 
     elif flag_11 == 1 and message.text.lower() == constant.bot_true_answer_10:
